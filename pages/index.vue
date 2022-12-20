@@ -1,11 +1,23 @@
 <template>
-  <Tutorial/>
+    <div>
+        <h1>Welcome to roux</h1>
+        <RecipeEntry />
+    </div>
 </template>
-
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'IndexPage'
+  
+<script>
+import { defineComponent } from '@vue/composition-api'
+import { makeRecipe } from '~/models/recipe'
+export default defineComponent({
+    data() {
+        return {
+            title: '',
+            recipes: []
+        }
+    },
+    async mounted() {
+        await $mongo.insert(makeRecipe());
+    }
 })
 </script>
+  
