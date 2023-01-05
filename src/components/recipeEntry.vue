@@ -1,6 +1,7 @@
 <template>
     <div>
         <p>Recipe: {{ recipe }}</p>
+        <br/>
         <div v-for="property in Object.keys(recipe)" :key=property>
             <div class="recipeField">
                 <label for="{{property}}">{{ property.charAt(0).toUpperCase() + property.slice(1) }}: </label>
@@ -11,14 +12,13 @@
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
-import {makeRecipe} from '~/models/recipe';
+import {makeRecipe} from '../models/recipe';
 
-export default defineComponent({
+export default {
     data() {
         return {
             recipe: makeRecipe()
         }
     }
-})
+}
 </script>
