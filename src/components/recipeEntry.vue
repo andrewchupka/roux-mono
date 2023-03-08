@@ -1,24 +1,31 @@
 <template>
-    <div>
-        <p>Recipe: {{ recipe }}</p>
-        <br/>
-        <div v-for="property in Object.keys(recipe)" :key=property>
-            <div class="recipeField">
-                <label for="{{property}}">{{ property.charAt(0).toUpperCase() + property.slice(1) }}: </label>
-                <input id="{{property}}" v-model="recipe[`${property}`]">
-            </div>
-        </div>
+  <div>
+    <p>Recipe: {{ recipe }}</p>
+    <br/>
+    <div class="formField">
+      <label for="recipeTitle">Title: </label>
+      <input id="recipeTitle" v-model="recipe['title']">
     </div>
+    <div class="formField">
+      <label for="recipeDesc">Description: </label>
+      <input id="recipeDesc" v-model="recipe['description']">
+    </div>
+    <div class="formField">
+      <label for="recipeTags">Tags: </label>
+      <TagInput></TagInput>
+    </div>
+
+  </div>
 </template>
 
 <script>
 import {makeRecipe} from '../models/recipe';
 
 export default {
-    data() {
-        return {
-            recipe: makeRecipe()
-        }
+  data() {
+    return {
+      recipe: makeRecipe()
     }
+  }
 }
 </script>

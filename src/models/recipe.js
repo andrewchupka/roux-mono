@@ -1,7 +1,10 @@
 export let makeRecipe = () => { return { 
     title: "",
-    author: "",
+    description: "",
+    tags: "",
+    time: "",
     ingredients: "",
     utensils: "",
-    source: "" 
+    directions: "",
+    cookStats: ""
 }}
