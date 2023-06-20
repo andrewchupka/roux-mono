@@ -1,22 +1,22 @@
 <template>
   <div>
-      <h1>Welcome to roux</h1>
-      <RecipeEntry />
+    <h1>Welcome to roux</h1>
+    <RecipeEntry />
   </div>
 </template>
 
 <script>
-import RecipeEntry from './components/RecipeEntry.vue'
+import RecipeEntry from "./components/RecipeEntry.vue";
 
 export default {
   components: {
-    RecipeEntry
+    RecipeEntry,
   },
   data() {
-      return {
-          title: '',
-          recipes: []
-      }
+    return {
+      title: "",
+      recipes: [],
+    };
   },
-}
+};
 </script>
