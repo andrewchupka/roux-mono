@@ -20,8 +20,10 @@
 
 <script>
 import {makeRecipe} from '../models/recipe';
+import TagInput from './TagInput.vue';
 
 export default {
+  components: { TagInput },
   data() {
     return {
       recipe: makeRecipe()

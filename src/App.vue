@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import RecipeEntry from './components/recipeEntry.vue'
+import RecipeEntry from './components/RecipeEntry.vue'
 
 export default {
   components: {
