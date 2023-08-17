@@ -1,12 +1,12 @@
-<template @deleteField="this.tags = this.tags.filter(item => item !== $event)">
-    <input @keyup.enter="addTag" v-model="tagInput">
-    <RemoveField v-for="tag in tags" :name="tag"></RemoveField>
+<template>
+    <input @keyup.enter="addTag" @keyup.space="normalizeInput" v-model="tagInput">
+    <Tag @deleteTag="this.tags = this.tags.filter(item => item !== $event)" v-for="tag in tags" :name="tag"></Tag>
 </template>
 
 <script>
-import RemoveField from './RemoveField.vue'
+import Tag from './Tag.vue'
 export default {
-  components: { RemoveField },
+  components: { Tag },
   data() {
     return {
       tagInput: "",
@@ -23,6 +23,13 @@ export default {
 
       this.tagInput = "";
     },
+    getTags() {
+      return this.tags;
+    },
+    normalizeInput() {
+      // strip off the space
+      this.tagInput = this.tagInput.substring(0, this.tagInput.length - 1) + "-";
+    }
   }
 }
 </script>

@@ -2,20 +2,20 @@
   <div>
     <p>Recipe: {{ recipe }}</p>
     <br/>
-    <div class="formField">
+    <div>
       <label for="recipeTitle">Title: </label>
       <input id="recipeTitle" v-model="recipe['title']">
     </div>
-    <div class="formField">
+    <div>
       <label for="recipeDesc">Description: </label>
       <input id="recipeDesc" v-model="recipe['description']">
     </div>
-    <div class="formField">
+    <div>
       <label for="recipeTags">Tags: </label>
-      <TagInput></TagInput>
+      <TagInput ref="tags"></TagInput>
     </div>
-
   </div>
+  <button @click="submitRecipe">Submit</button>
 </template>
 
 <script>
@@ -27,6 +27,11 @@ export default {
   data() {
     return {
       recipe: makeRecipe()
+    }
+  },
+  methods: {
+    submitRecipe() {
+      this.recipe["tags"] = this.$refs.tags.getTags();
     }
   }
 }
