@@ -1,4 +1,5 @@
-export let makeRecipe = () => { return { 
+export let makeRecipe = () => {
+  return {
     title: "",
     description: "",
     tags: "",
@@ -6,5 +7,6 @@ export let makeRecipe = () => { return {
     ingredients: "",
     utensils: "",
     directions: "",
-    cookStats: ""
-}}
+    cookStats: "",
+  };
+};

@@ -12,7 +12,11 @@
     </div>
     <div>
       <label for="recipeTags">Tags: </label>
-      <TagInput ref="tags"></TagInput>
+      <TagInput id="recipeTags" ref="tags"></TagInput>
+    </div>
+    <div>
+      <label for="recipeIngredients">Ingredients: </label>
+      <IngredientsInput id="recipeIngredients" ref="ingredients"></IngredientsInput>
     </div>
   </div>
   <button @click="submitRecipe">Submit</button>
