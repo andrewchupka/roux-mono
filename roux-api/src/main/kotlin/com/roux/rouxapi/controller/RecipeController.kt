@@ -58,4 +58,10 @@ class RecipeController (
         return ResponseEntity.ok(recipe)
     }
 
+    @GetMapping("/")
+    fun temp() : String {
+        return "hello"
+    }
+
+
 }

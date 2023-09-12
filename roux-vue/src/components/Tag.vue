@@ -36,7 +36,7 @@ export default {
       color += green.toString(16).padStart(2, "0");
       color += blue.toString(16).padStart(2, "0");
 
-      // Get the brightnes of the color to determine contrast
+      // Get the brightness of the color to determine contrast
       const brightness = (red * 299 + green * 587 + blue * 114) / 1000;
 
       console.log(color);
