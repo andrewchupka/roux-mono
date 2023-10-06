@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  frontend:
+    build: roux-vue
+    volumes:
+      - ./roux-vue:/roux-vue
+      - /roux-vue/node_modules
+    ports: ["5173:5173"]
+
+  mongodb:
+    image: mongo:latest
+    ports: ["27017:27017"]
+    volumes:
+      - ./dbData:/data/db
+
+  backend:
+    build: roux-api
+    volumes:
+      - ./roux-api:/roux-api
+    ports: ["8080:8080"]
+    depends_on: 
+      - mongodb
