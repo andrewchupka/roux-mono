@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { hashString } from "../util/stringUtils.js";
+import { hashString } from "../../util/stringUtils.js";
 
 export default {
   props: {
