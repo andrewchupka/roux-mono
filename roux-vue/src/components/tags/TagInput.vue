@@ -2,7 +2,11 @@
 	<div>
 		<input @keyup.enter="addTag" @keyup.space="normalizeInput" v-model="tagInput">
 		<div class="tags">
-			<Tag @deleteTag="this.tags = this.tags.filter(item => item !== $event)" v-for="tag in tags" :name="tag"></Tag>
+			<Tag 
+				v-for="(tag, index) in tags" 
+				:name="tag"
+				@deleteTag="this.tags.splice(index, 1)">
+			</Tag>
 		</div>
 	</div>
 </template>
@@ -14,7 +18,7 @@ export default {
 	data() {
 		return {
 			tagInput: "",
-			tags: ["easy", "weeknight"]
+			tags: []
 		}
 	},
 	methods: {

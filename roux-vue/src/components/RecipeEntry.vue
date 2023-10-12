@@ -8,7 +8,12 @@
     </div>
     <div>
       <label for="desc">Description: </label>
-      <input id="desc" v-model="recipe['description']">
+      <textarea 
+        rows="5"
+        cols="100"
+        id="desc" 
+        v-model="recipe['description']"
+      ></textarea>
     </div>
     <div>
       <label for="tags">Tags: </label>
@@ -18,6 +23,10 @@
       <label for="ingredients">Ingredients: </label>
       <IngredientsInput id="ingredients" ref="ingredients"></IngredientsInput>
     </div>
+    <div>
+      <label for="equipment">Equipment: </label>
+      <EquipmentInput id="equipment" ref="equipment"></EquipmentInput>
+    </div>
   </div>
   <button @click="submitRecipe">Submit</button>
 </template>
@@ -26,9 +35,10 @@
 import {makeRecipe} from '../models/recipe';
 import TagInput from './tags/TagInput.vue';
 import IngredientsInput from './ingredients/IngredientsInput.vue';
+import EquipmentInput from './equipment/EquipmentInput.vue';
 
 export default {
-  components: { TagInput, IngredientsInput },
+  components: { TagInput, IngredientsInput, EquipmentInput },
   data() {
     return {
       recipe: makeRecipe()
@@ -38,6 +48,7 @@ export default {
     submitRecipe() {
       this.recipe["tags"] = this.$refs.tags.getTags();
       this.recipe["ingredients"] = this.$refs.ingredients.getIngredients();
+      this.recipe["equipment"] = this.$refs.equipment.getEquipment();
     }
   }
 }
