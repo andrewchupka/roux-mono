@@ -7,7 +7,7 @@
       @equipmentRemove="removeEquipment(index)">
     </EquipmentLineItem>
 
-    <button @click="this.addEquipment">New ingredient</button>
+    <button @click="this.addEquipment">New equipment</button>
   </div>
 </template>
 

@@ -31,6 +31,10 @@
       <label for="time">Time: </label>
       <CookTimeInput id='time' ref="time"></CookTimeInput>
     </div>
+    <div>
+      <label for="instructions">Directions: </label>
+      <DirectionInput id="directions" ref="directions" :steps="recipe.directions"></DirectionInput>
+    </div>
   </div>
   <button @click="submitRecipe">Submit</button>
 </template>
@@ -41,9 +45,10 @@ import TagInput from './tags/TagInput.vue';
 import IngredientsInput from './ingredients/IngredientsInput.vue';
 import EquipmentInput from './equipment/EquipmentInput.vue';
 import CookTimeInput from './time/CookTimeInput.vue';
+import DirectionInput from './directions/DirectionsInput.vue'
 
 export default {
-  components: { TagInput, IngredientsInput, EquipmentInput, CookTimeInput },
+  components: { TagInput, IngredientsInput, EquipmentInput, CookTimeInput, DirectionInput },
   data() {
     return {
       recipe: makeRecipe()

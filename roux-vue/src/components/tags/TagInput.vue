@@ -45,6 +45,7 @@ export default {
 <style scoped>
 .tags {
 	display: flex;
+	flex-wrap: wrap;
 	padding: 4px;
 }
 
