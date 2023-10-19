@@ -27,6 +27,10 @@
       <label for="equipment">Equipment: </label>
       <EquipmentInput id="equipment" ref="equipment"></EquipmentInput>
     </div>
+    <div>
+      <label for="time">Time: </label>
+      <CookTimeInput id='time' ref="time"></CookTimeInput>
+    </div>
   </div>
   <button @click="submitRecipe">Submit</button>
 </template>
@@ -36,9 +40,10 @@ import {makeRecipe} from '../models/recipe';
 import TagInput from './tags/TagInput.vue';
 import IngredientsInput from './ingredients/IngredientsInput.vue';
 import EquipmentInput from './equipment/EquipmentInput.vue';
+import CookTimeInput from './time/CookTimeInput.vue';
 
 export default {
-  components: { TagInput, IngredientsInput, EquipmentInput },
+  components: { TagInput, IngredientsInput, EquipmentInput, CookTimeInput },
   data() {
     return {
       recipe: makeRecipe()
@@ -49,6 +54,7 @@ export default {
       this.recipe["tags"] = this.$refs.tags.getTags();
       this.recipe["ingredients"] = this.$refs.ingredients.getIngredients();
       this.recipe["equipment"] = this.$refs.equipment.getEquipment();
+      this.recipe["time"] = this.$refs.time.getTime();
     }
   }
 }
