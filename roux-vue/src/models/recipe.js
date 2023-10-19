@@ -2,11 +2,11 @@ export let makeRecipe = () => {
   return {
     title: "",
     description: "",
-    tags: {},
+    tags: [],
     time: {},
-    ingredients: {},
-    utensils: {},
-    directions: {},
+    ingredients: [],
+    utensils: [],
+    directions: [{order: 1}],
     cookStats: {},
   };
 };
