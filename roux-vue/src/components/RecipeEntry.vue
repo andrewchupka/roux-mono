@@ -8,7 +8,12 @@
     </div>
     <div>
       <label for="desc">Description: </label>
-      <input id="desc" v-model="recipe['description']">
+      <textarea 
+        rows="5"
+        cols="100"
+        id="desc" 
+        v-model="recipe['description']"
+      ></textarea>
     </div>
     <div>
       <label for="tags">Tags: </label>
@@ -18,6 +23,14 @@
       <label for="ingredients">Ingredients: </label>
       <IngredientsInput id="ingredients" ref="ingredients"></IngredientsInput>
     </div>
+    <div>
+      <label for="equipment">Equipment: </label>
+      <EquipmentInput id="equipment" ref="equipment"></EquipmentInput>
+    </div>
+    <div>
+      <label for="time">Time: </label>
+      <CookTimeInput id='time' ref="time"></CookTimeInput>
+    </div>
   </div>
   <button @click="submitRecipe">Submit</button>
 </template>
@@ -26,9 +39,11 @@
 import {makeRecipe} from '../models/recipe';
 import TagInput from './tags/TagInput.vue';
 import IngredientsInput from './ingredients/IngredientsInput.vue';
+import EquipmentInput from './equipment/EquipmentInput.vue';
+import CookTimeInput from './time/CookTimeInput.vue';
 
 export default {
-  components: { TagInput, IngredientsInput },
+  components: { TagInput, IngredientsInput, EquipmentInput, CookTimeInput },
   data() {
     return {
       recipe: makeRecipe()
@@ -38,6 +53,8 @@ export default {
     submitRecipe() {
       this.recipe["tags"] = this.$refs.tags.getTags();
       this.recipe["ingredients"] = this.$refs.ingredients.getIngredients();
+      this.recipe["equipment"] = this.$refs.equipment.getEquipment();
+      this.recipe["time"] = this.$refs.time.getTime();
     }
   }
 }

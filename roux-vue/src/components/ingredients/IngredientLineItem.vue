@@ -28,10 +28,10 @@
 				<input id="otherDesc" v-show="ingredientData.descriptor === 'other'" v-model="ingredientData.otherDescriptor">
 			</div>
 
-			<!-- amount  -->
-			<div id="amount">
-				<label for="amountInput">Quantity:</label>
-				<input id="amountInput" type="number">
+			<!-- quantity  -->
+			<div id="quantity">
+				<label for="quantityInput">Quantity:</label>
+				<input id="quantityInput" type="number" v-model="ingredientData.quantity">
 			</div>
 
 			<!-- unit -->
@@ -70,11 +70,6 @@ export default {
 				"lbs",
 				"servings"
 			]
-		}
-	},
-	methods: {
-		getIngredients() {
-			return this.ingredientData;
 		}
 	}
 }

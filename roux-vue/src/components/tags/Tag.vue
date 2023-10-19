@@ -2,7 +2,7 @@
   <div class="removeField">
     <div :style="cssProps">
       <span class="name">{{ name }}</span>
-      <button @click="$emit('deleteTag', this.name)">
+      <button @click="$emit('deleteTag')">
         <img
           src="https://www.svgrepo.com/show/12848/x-symbol.svg"
           width="10"
