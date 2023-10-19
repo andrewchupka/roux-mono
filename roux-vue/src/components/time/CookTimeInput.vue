@@ -1,10 +1,10 @@
 <template>
   <div class="cookTime">
-    <TimeInput :name="'Prep'" :time="prep"></TimeInput>
+    <TimeInput :name="'Prep'" :time="time.prep"></TimeInput>
     <div class="break"></div>
-    <TimeInput :name="'Cook'" :time="cook"></TimeInput> 
+    <TimeInput :name="'Cook'" :time="time.cook"></TimeInput> 
     <div class="break"></div>
-    <TimeInput :name="'Total'" :time="total"></TimeInput>
+    <TimeInput :name="'Total'" :time="time.total"></TimeInput>
   </div>
 </template>
 
@@ -13,32 +13,22 @@ import TimeInput from './TimeInput.vue';
 export default {
   name: "CookTimeInput",
   components: {TimeInput},
-  data() {
-    return {
-      prep: {hours: 0, minutes: 0},
-      cook: {hours: 0, minutes: 0},
-      total: {hours: 0, minutes: 0},
-    }
+  props: {
+    time: Object
   },
   watch: {
-    prep: {
+    time: {
       handler(newValue, oldValue) {
         this.updateTotal()
       },
       deep: true
     },
-    cook: {
-      handler(newValue, oldValue) {
-        this.updateTotal()
-      },
-      deep: true
-    }
   },
   methods: {
     updateTotal() {
-      let totalMinutes = this.prep.minutes + this.cook.minutes
-      this.total.minutes = totalMinutes % 60
-      this.total.hours = this.prep.hours + this.cook.hours + Math.floor(totalMinutes / 60)
+      let totalMinutes = this.time.prep.minutes + this.time.cook.minutes
+      this.time.total.minutes = totalMinutes % 60
+      this.time.total.hours = this.time.prep.hours + this.time.cook.hours + Math.floor(totalMinutes / 60)
     },
     getTime() {
       return {

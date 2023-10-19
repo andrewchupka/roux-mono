@@ -1,14 +1,9 @@
 import axios from "axios";
 
-export const createRecipe = (recipe) => {
-  return axios
+export async function createRecipe(recipe) {
+  await axios
     .post("localhost:8080", {
       body: recipe,
-    })
-    .then(() => {
-      console.log("Recipe submitted successfully");
-    })
-    .catch((e) => {
-      return e;
     });
-};
+  console.log("Recipe submitted successfully");
+}

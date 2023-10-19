@@ -15,10 +15,12 @@
 import Tag from './Tag.vue'
 export default {
 	components: { Tag },
+	props: {
+		tags: Array
+	},
 	data() {
 		return {
-			tagInput: "",
-			tags: []
+			tagInput: ""
 		}
 	},
 	methods: {

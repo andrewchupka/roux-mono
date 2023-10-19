@@ -3,9 +3,13 @@ export let makeRecipe = () => {
     title: "",
     description: "",
     tags: [],
-    time: {},
-    ingredients: [],
-    utensils: [],
+    time: {
+      prep: {hours: 0, minutes: 0},
+      cook: {hours: 0, minutes: 0},
+      total: {hours: 0, minutes: 0},
+    },
+    ingredients: [{}],
+    equipment: [{}],
     directions: [{order: 1}],
     cookStats: {},
   };

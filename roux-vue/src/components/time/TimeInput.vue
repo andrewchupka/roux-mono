@@ -46,6 +46,6 @@ div {
 }
 
 input {
-  width: 3em;
+  width: 10em;
 }
 </style>

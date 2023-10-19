@@ -17,19 +17,19 @@
     </div>
     <div>
       <label for="tags">Tags: </label>
-      <TagInput id="tags" ref="tags"></TagInput>
+      <TagInput id="tags" ref="tags" :tags="recipe.tags"></TagInput>
     </div>
     <div>
       <label for="ingredients">Ingredients: </label>
-      <IngredientsInput id="ingredients" ref="ingredients"></IngredientsInput>
+      <IngredientsInput id="ingredients" ref="ingredients" :ingredientLineItems="recipe.ingredients"></IngredientsInput>
     </div>
     <div>
       <label for="equipment">Equipment: </label>
-      <EquipmentInput id="equipment" ref="equipment"></EquipmentInput>
+      <EquipmentInput id="equipment" ref="equipment" :equipmentList="recipe.equipment"></EquipmentInput>
     </div>
     <div>
       <label for="time">Time: </label>
-      <CookTimeInput id='time' ref="time"></CookTimeInput>
+      <CookTimeInput id='time' ref="time" :time="recipe.time"></CookTimeInput>
     </div>
     <div>
       <label for="instructions">Directions: </label>
@@ -41,6 +41,7 @@
 
 <script>
 import {makeRecipe} from '../models/recipe';
+import { createRecipe } from '../services/roux-api-service';
 import TagInput from './tags/TagInput.vue';
 import IngredientsInput from './ingredients/IngredientsInput.vue';
 import EquipmentInput from './equipment/EquipmentInput.vue';
@@ -56,10 +57,9 @@ export default {
   },
   methods: {
     submitRecipe() {
-      this.recipe["tags"] = this.$refs.tags.getTags();
-      this.recipe["ingredients"] = this.$refs.ingredients.getIngredients();
-      this.recipe["equipment"] = this.$refs.equipment.getEquipment();
-      this.recipe["time"] = this.$refs.time.getTime();
+      this.recipe.directions.splice(this.recipe.directions.length - 1, 1);
+      console.log(this.recipe);
+      this.recipe = makeRecipe();
     }
   }
 }
