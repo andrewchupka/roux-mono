@@ -25,6 +25,7 @@ export default {
 	},
 	methods: {
 		addTag() {
+			this.tagInput = this.tagInput.toLowerCase();
 			if (this.tags.includes(this.tagInput)) {
 				console.log(`${this.tagInput} has already been added`)
 			} else {

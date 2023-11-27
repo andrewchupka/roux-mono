@@ -20,6 +20,9 @@ export default {
       equipmentList: Array
     },
     methods: {
+       addEquipment() {
+        this.equipmentList.push({});
+       },
        removeEquipment(index) {
         this.equipmentList.splice(index, 1);
        },

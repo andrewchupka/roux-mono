@@ -28,7 +28,7 @@ export default {
     updateTotal() {
       let totalMinutes = this.time.prep.minutes + this.time.cook.minutes
       this.time.total.minutes = totalMinutes % 60
-      this.time.total.hours = this.time.prep.hours + this.time.cook.hours + Math.floor(totalMinutes / 60)
+      this.time.total.hours = parseInt(this.time.prep.hours + this.time.cook.hours + Math.floor(totalMinutes / 60))
     },
     getTime() {
       return {

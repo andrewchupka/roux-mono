@@ -1,7 +1,10 @@
 <template>
+  <div v-show="debug">
+      <p>{{ recipe }}</p>
+      <textarea v-on:change="updateRecipe($event)"></textarea>
+    </div>
+    
   <div class="recipeForm">
-    <p>Recipe: {{ recipe }}</p>
-    <br/>
     <div>
       <label for="title">Title: </label>
       <input id="title" v-model="recipe['title']">
@@ -9,8 +12,8 @@
     <div>
       <label for="desc">Description: </label>
       <textarea 
-        rows="5"
-        cols="100"
+        rows="4"
+        cols="50"
         id="desc" 
         v-model="recipe['description']"
       ></textarea>
@@ -52,14 +55,33 @@ export default {
   components: { TagInput, IngredientsInput, EquipmentInput, CookTimeInput, DirectionInput },
   data() {
     return {
-      recipe: makeRecipe()
+      recipe: makeRecipe(),
+      debug: import.meta.env.DEV
     }
   },
   methods: {
-    submitRecipe() {
+    updateRecipe(text) {
+      let item = JSON.parse(text);
+      console.log(item);
+      this.recipe = item;
+    },
+    async submitRecipe() {
+      // Normalize the recipe
       this.recipe.directions.splice(this.recipe.directions.length - 1, 1);
-      console.log(this.recipe);
-      this.recipe = makeRecipe();
+      this.recipe.ingredients = this.removeEmpties(this.recipe.ingredients)
+      this.recipe.equipment = this.removeEmpties(this.recipe.equipment)
+
+      try {
+        await createRecipe(this.recipe);
+      } catch (error) {
+        alert("Error creating recipe");
+        throw error;
+      }
+
+      // this.recipe = makeRecipe();
+    },
+    removeEmpties(list) {
+      return list.filter(item => Object.keys(item).length === 0)
     }
   }
 }

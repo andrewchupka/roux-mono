@@ -9,14 +9,14 @@ import java.time.LocalDateTime
 data class Recipe (
         @Id
         val id: ObjectId = ObjectId.get(),
-        var name: String,
+        var title: String,
         var description: String,
         var createdDate: LocalDateTime = LocalDateTime.now(),
         var modifiedDate: LocalDateTime = LocalDateTime.now(),
-        var tags: List<Tag>? = null,
-        var recipeTime: CookTime,
+        var tags: List<String>? = null,
+        var time: RecipeTime,
         var ingredients: List<Ingredient>,
-        var supplies: List<Utensil>,
+        var equipment: List<Equipment>,
         var directions: List<Direction>,
         var cookStats: CookStats = CookStats(0, null)
 )

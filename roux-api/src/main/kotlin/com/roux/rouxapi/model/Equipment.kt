@@ -2,9 +2,8 @@ package com.roux.rouxapi.model
 
 import org.bson.types.ObjectId
 
-data class Utensil (
+data class Equipment (
     val id : ObjectId = ObjectId.get(),
     var name: String,
-    var size: String,
-    var purpose: String
+    var quantity: Int
 )

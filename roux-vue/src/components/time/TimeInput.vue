@@ -7,6 +7,7 @@
         id="hours" 
         type="number" 
         v-model="time.hours"
+        v-on:blur="normalizeTimeValue"
       >
       <label for="hours"> hours</label>
     </div>
@@ -16,6 +17,7 @@
         id="minutes"
         type="number" 
         v-model="time.minutes"
+        v-on:blur="normalizeTimeValue"
       >
       <label for="minutes"> minutes</label>
     </div>
@@ -28,6 +30,15 @@ export default {
   props: {
     name: String,
     time: Object
+  },
+  methods: {
+    normalizeTimeValue() {
+      if (this.time.hours === '') {
+        this.time.hours = 0;
+      } else if (this.time.minutes === '') {
+        this.time.minutes = 0;
+      }
+    }
   }
 }
 </script>

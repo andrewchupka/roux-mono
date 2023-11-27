@@ -36,6 +36,9 @@ export default {
     };
   },
   methods: {
+    addIngredient() {
+      this.ingredientLineItems.push({});
+    },
     removeIngredient(index) {
       this.ingredientLineItems.splice(index, 1)
     },
