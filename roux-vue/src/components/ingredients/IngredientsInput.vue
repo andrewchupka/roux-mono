@@ -20,9 +20,11 @@ import IngredientLineItem from './IngredientLineItem.vue';
 
 export default {
   name: "IngredientsInput",
+  props: {
+    ingredientLineItems: Array
+  },
   data() {
     return {
-      ingredientLineItems: [],
       descriptors: [
         { text: "", value: undefined },
         { text: "chopped", value: "chopped" },
@@ -32,9 +34,6 @@ export default {
         { text: "other", value: "other" }
       ]
     };
-  },
-  mounted() {
-    this.addIngredient();
   },
   methods: {
     addIngredient() {

@@ -2,7 +2,7 @@
   <div class="equipmentLine">
     <div>
       <label for="quantityInput">Quantity</label>
-      <input id="quantityInput" v-model="equipmentData.quantity">
+      <input id="quantityInput" v-model="equipmentData.quantity" type="number">
     </div>
 
     <div>

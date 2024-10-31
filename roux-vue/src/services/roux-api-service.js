@@ -1,14 +1,10 @@
 import axios from "axios";
+import { recipesPath } from "../util/constants";
 
-export const createRecipe = (recipe) => {
-  return axios
-    .post("localhost:8080", {
-      body: recipe,
-    })
-    .then(() => {
-      console.log("Recipe submitted successfully");
-    })
-    .catch((e) => {
-      return e;
-    });
-};
+export async function createRecipe(recipe) {
+  await axios
+    .post("http://localhost:8080" + recipesPath,
+      recipe
+    );
+  console.log("Recipe submitted successfully");
+}

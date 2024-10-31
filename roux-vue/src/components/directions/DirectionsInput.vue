@@ -6,7 +6,7 @@
         :id="index" 
         :ref="index"
         @keyup="addDirection(index, item)"
-        v-model="item['step']" 
+        v-model="item['text']" 
         cols="100" 
         rows="2">
       </textarea>
@@ -23,7 +23,7 @@ export default {
   
   methods: {
     addDirection(index, item) {
-      item.step = item.step.replace("\n", "");
+      item.text = item.text.replace("\n", "");
 
       if (this.steps[index + 1] === undefined) {
         this.steps.push({order: index + 2})

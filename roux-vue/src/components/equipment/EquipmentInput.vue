@@ -16,14 +16,9 @@ import EquipmentLineItem from './EquipmentLineItem.vue';
 
 export default {
     name: "EquipmentInput",
-    data() {
-        return {
-            equipmentList: []
-        };
+    props: {
+      equipmentList: Array
     },
-    mounted() {
-      this.addEquipment();
-    }, 
     methods: {
        addEquipment() {
         this.equipmentList.push({});
