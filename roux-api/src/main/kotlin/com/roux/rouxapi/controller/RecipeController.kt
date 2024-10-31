@@ -1,11 +1,11 @@
 package com.roux.rouxapi.controller
 
 import com.roux.rouxapi.model.Recipe
-import com.roux.rouxapi.model.Tag
 import com.roux.rouxapi.model.requests.UpdateRecipe
 import com.roux.rouxapi.repository.RecipeRepository
 import com.roux.rouxapi.util.mapUpdateRequestToRecipe
 import org.bson.types.ObjectId
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/recipes")
 class RecipeController (
-        private val recipesRepository: RecipeRepository
+        @Autowired private val recipesRepository: RecipeRepository
 ){
 
     @GetMapping()

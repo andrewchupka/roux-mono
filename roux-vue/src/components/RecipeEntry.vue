@@ -78,7 +78,7 @@ export default {
         throw error;
       }
 
-      // this.recipe = makeRecipe();
+      this.recipe = makeRecipe();
     },
     removeEmpties(list) {
       return list.filter(item => Object.keys(item).length === 0)
